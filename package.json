@@ -1,0 +1,54 @@
+{
+  "name": "Isak",
+  "version": "0.0.1",
+  "description": "DESCRIPTION",
+  "main": "dist/src/main.js",
+  "exports": "./dist/index.js",
+  "type": "module",
+  "bin": {
+    "COMMAND": "dist/src/main.js"
+  },
+  "directories": {
+    "test": "test",
+    "doc": "doc",
+    "dist": "dist"
+  },
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "setup:unix": "npm run setup && chmod a+x dist/src/main.js",
+    "app": "node dist/src/main.js",
+    "test": "mocha dist/test/ --reporter spec",
+    "build": "tsc && npm run fmt",
+    "watch": "tsc -w",
+    "doc": "typedoc src",
+    "fmt": "prettier -w --prose-wrap always --ignore-unknown -c '*'",
+    "publish": "npm run build && npm run test && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "GIT_PATH"
+  },
+  "bugs": {
+    "url": "ISSUES_URL"
+  },
+  "author": "AUTHOR",
+  "devDependencies": {
+    "@types/chai": "^4.3.9",
+    "@types/chai-string": "^1.4.4",
+    "@types/mocha": "^10.0.3",
+    "@types/prompt-sync": "^4.2.3",
+    "chai": "^4.3.10",
+    "chai-string": "^1.5.0",
+    "deep-eql": "^5.0.1",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.25.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/colors": "^1.2.1",
+    "colors": "^1.4.0",
+    "promise-prompt": "^1.1.1"
+  }
+}
